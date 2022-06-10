@@ -126,3 +126,7 @@ ui-tests/playwright-report
 
 # VSCode
 .vscode
+
+# Ignore processed data for easy reproducibility
+data/raw/*
+data/processed/*
