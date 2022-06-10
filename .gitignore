@@ -130,3 +130,4 @@ ui-tests/playwright-report
 # Ignore processed data for easy reproducibility
 data/raw/*
 data/processed/*
+data/compressed/*
