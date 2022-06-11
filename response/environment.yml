@@ -8,3 +8,5 @@ dependencies:
   - pyarrow
   - jupyterlab
   - snorkel>=0.9.0
+  - pytest
+  
