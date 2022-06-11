@@ -1,0 +1,10 @@
+name: env-challenge-ilikedata
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - pandas
+  - matplotlib
+  - pyarrow
+  - jupyterlab
+  - snorkel>=0.9.0
