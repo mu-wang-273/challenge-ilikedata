@@ -1,3 +1,4 @@
 # ignore all files in this folder
 *
 !.gitignore
+!training_set.parquet
