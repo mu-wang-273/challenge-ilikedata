@@ -11,14 +11,16 @@ Understanding customer gender is highly beneficial to THE ICONIC as a business. 
 
 We have built a statistically robust pipepline, employing state-of-the-art methodology such as [Weakly Supervised](https://en.wikipedia.org/wiki/Weak_supervision) labelling and machine learning, that is capable of "inferring" customer gender from their purchase behaviour. 
 
-By harnessing the rich customer data available in our organisation, as well as our deep SME knowledge, this pipeline is capable of fast scaling up and iterative improvement in relatively short term. 
+By harnessing the rich customer data available in our organisation, as well as our deep SME knowledge, this pipeline allows fast scaling up and iterative improvement in relatively short term. 
 
 A quick Proof of Concept can be achieved in 2-4 weeks time frame, which will provide proof, insights and data points to build a commercially viable business case. 
+
+Furthermore, this pipeline enables speedy onboarding of any future use case with similar requirements: predicting customer features where source of truth is noisy or unreliable, and volume of data is overwhelmingly large. It will provide an easily scalable platform that delivers high performance predictive models. 
 
 # Responses to Stage4: DELIEVER questions
 
 ### 1. How did you clean the data and what was wrong with it? Close to 90% of a Data Scientist's job is in cleaning data
-As suggested by the instructions, there were two issues with the raw data: 
+There were two issues with the raw data: 
 - "days_since_last_order" was actually "hours_since_last_order", I fixed it by simply divding it by 24.
 - "average_discount_used" had 4 extra zeros, it's fixed by dividing by 10000
 
@@ -39,13 +41,13 @@ I would consider two things as the "final output":
 - "Inferred" Gender labels for the entire customer dataset provided, which is stored [here](data/processed/training_set.parquet). This is produced by a programmingly labelling process called Weak Supervision. It essentially scales up my intuition on this task drastically so that I can label the entire dataset in an hour while stay true to the "SME knowledge" I possess as an individual. If true experts were involved in this same process, labels of very high quality will be produced. 
 - A Machine Learning model trained on Weakly Supervised labels, that takes in new/unseen customer data and predicts customer gender. This is a generalisation of above labelling process to broader dataset and context. The whole process can be found in [this notebook](notebooks/stage3_build_train_ml.ipynb). 
 
-When it comes to accuracy in real world, it's impossible and dangerous to call out without a ground truth hold out test set. If we do have such ground truth, it should be easy to test the accuracy and drastically improve this model. 
+When it comes to accuracy in real world, it's impossible and imprudent to call out without a ground truth hold out test set. If we do have such ground truth, it should be easy to test the accuracy and greatly improve this model. 
 
 ### 4. What other features and variables can you think of, that can make this process more robust? Can you make a recommendation of top 5 features you'd seek to find apart from the ones given here
 It's more productive to work with domain SMEs to identify best features to use. That been said, based on my experience with customer/service/product data in general, here are some features I might explore:
 - Customer browsing behaviour, that would help with customers who have few purchases
 - Type of items in wishlist/shopping cart
-- Recent purchase behaviour instead of life-time statistics, since people may share account
+- Recent purchase behaviour instead of life-time statistics, since people may share account and active user may change over time
 - Marketing campaign/newsletter click through, did they click on female/male product ads?
 - Customer feedback/review/complaints data, some of them would leave pronouns and first names in there, which would be much more accurate when it comes to inferring gender using NLP
 
@@ -56,8 +58,8 @@ Please refer to the "Excecutive summar" section above.
 > Disclaimer: I've tested below steps on Macbook Pro (x86, not M1 model) by deleting everything and starting from zero following these steps. However I haven't tested with other hardware therefore it's not guaranteed to work everywhere. I've put Conda dependency in a slightly relaxed way hoping Conda would workout the dependencies for different hardware automatically. 
 
 ### Prerequisites
-Ananconda or Miniconda
-Git
+- Ananconda or Miniconda
+- Git
 
 ### Clone git repo and setup Conda environment
 Clone git repo from here: `https://github.com/mu-wang-273/challenge-ilikedata.git`
