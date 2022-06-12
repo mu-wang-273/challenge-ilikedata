@@ -62,26 +62,42 @@ Please refer to the "Excecutive summar" section above.
 - Git
 
 ### Clone git repo and setup Conda environment
-Clone git repo from here: `https://github.com/mu-wang-273/challenge-ilikedata.git`
+Clone git repo from here: 
+
+`https://github.com/mu-wang-273/challenge-ilikedata.git`
 
 Go into the response folder inside the repo: `challenge-ilikedata/response/`
 
-Setup conda environment by running: `conda env create -f environment.yml`, this will take a while. 
+Setup conda environment by running: 
 
-Activate the conda environment `conda activate env-challenge-ilikedata`
+`conda env create -f environment.yml`
+
+This will take a while. 
+
+Activate the conda environment:
+
+`conda activate env-challenge-ilikedata`
 
 ### Run Unit Test
 Make sure you have the environment activated and you are at `challenge-ilikedata/response/`
 
-Add current path to $PYTHONPATH ```export PYTHONPATH=`pwd`:$PYTHONPATH```
+Add current path to $PYTHONPATH 
 
-Run unit test `pytest`, you should see something like:
+```export PYTHONPATH=`pwd`:$PYTHONPATH```
+
+Run unit test 
+
+`pytest`
+
+You should see something like:
 > ======= 1 passed in 14.44s =======
 
 ### Start Jupyter-lab
 Make sure you have the environment activated and you are at `challenge-ilikedata/response/`
 
-Start Jupyterlab locally by running `jupyter lab`
+Start Jupyterlab locally by running 
+
+`jupyter lab`
 
 ### Unpack data
 Open notebook `response/notebooks/stage0_unpack_data.ipynb` in Jupyterlab
