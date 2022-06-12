@@ -9,7 +9,7 @@ This is the summary page/entry point to my response. It consists of a few sectio
 # Executive summary
 Understanding customer gender is highly beneficial to THE ICONIC as a business. It enables tailored user experience, branding strategy, marketing, product and most importanly merchandising. There's great potential in uplifting cross-sell/up-sell, resulting in direct revenue increase. 
 
-We have built a statistically robust pipepline, employing state-of-the-art methodology such as Weakly Supervised labelling and machine learning, that is capable of "inferring" customer gender from their purchase behaviour. 
+We have built a statistically robust pipepline, employing state-of-the-art methodology such as [Weakly Supervised](https://en.wikipedia.org/wiki/Weak_supervision) labelling and machine learning, that is capable of "inferring" customer gender from their purchase behaviour. 
 
 By harnessing the rich customer data available in our organisation, as well as our deep SME knowledge, this pipeline is capable of fast scaling up and iterative improvement in relatively short term. 
 
@@ -55,3 +55,62 @@ Please refer to the "Excecutive summar" section above.
 # Reproducibility instructions
 > Disclaimer: I've tested below steps on Macbook Pro (x86, not M1 model) by deleting everything and starting from zero following these steps. However I haven't tested with other hardware therefore it's not guaranteed to work everywhere. I've put Conda dependency in a slightly relaxed way hoping Conda would workout the dependencies for different hardware automatically. 
 
+### Prerequisites
+Ananconda or Miniconda
+Git
+
+### Clone git repo and setup Conda environment
+Clone git repo from here: `https://github.com/mu-wang-273/challenge-ilikedata.git`
+
+Go into the response folder inside the repo: `challenge-ilikedata/response/`
+
+Setup conda environment by running: `conda env create -f environment.yml`, this will take a while. 
+
+Activate the conda environment `conda activate env-challenge-ilikedata`
+
+### Run Unit Test
+Make sure you have the environment activated and you are at `challenge-ilikedata/response/`
+
+Add current path to $PYTHONPATH ```export PYTHONPATH=`pwd`:$PYTHONPATH```
+
+Run unit test `pytest`, you should see something like:
+> ======= 1 passed in 14.44s =======
+
+### Start Jupyter-lab
+Make sure you have the environment activated and you are at `challenge-ilikedata/response/`
+
+Start Jupyterlab locally by running `jupyter lab`
+
+### Unpack data
+Open notebook `response/notebooks/stage0_unpack_data.ipynb` in Jupyterlab
+
+Run all cells. Once finished, you should see `data.json` and `test_data.db` in `response/data/raw/`
+
+### Run stage1_sql.ipynb
+Open notebook `response/notebooks/stage1_sql.ipynb` in Jupyterlab
+
+Run all cells
+
+### Run stage2_clean.ipynb
+Open notebook `response/notebooks/stage2_clean.ipynb` in Jupyterlab
+
+Run all cells. Once finish, you should see `clean_data.parquet` under `response/data/processed`
+
+### Run stage3_build_feature_engineering.ipynb
+Open notebook `response/notebooks/stage3_build_feature_engineering.ipynb` in Jupyterlab
+
+Run all cells. 
+
+### Run stage3_build_labelling.ipynb
+Open notebook `response/notebooks/stage3_build_labelling.ipynb` in Jupyterlab
+
+Run all cells. Once finish, you should see `training_set.parquet` under `response/data/processed`
+
+### Run stage3_build_train_ml.ipynb
+Open notebook `response/notebooks/stage3_build_train_ml.ipynb` in Jupyterlab
+
+Run all cells. The GridSearch hyper parameter tuning will take a few minutes to finish. 
+
+---
+
+# End of Doc
